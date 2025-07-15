@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Dr. Polli — Odontologia de Excelência em Jundiaí</title>
+  <meta name="description" content="A Clínica Dr. Polli oferece tratamentos odontológicos completos e personalizados em Jundiaí. Agende sua consulta e transforme seu sorriso.">
+  
+  <!-- Estilos e fontes -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Ícones Font Awesome -->
+<!-- Font Awesome - versão limpa para localhost -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Favicons -->
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav" id="navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <span class="brand-text">Dr. Polli<span class="dot">.</span></span>
+    </div>
+    <div class="nav-menu" id="navMenu">
+      <a href="#hero" class="nav-link active" data-section="hero">Início</a>
+      <a href="#about" class="nav-link" data-section="about">Sobre Nós</a>
+      <a href="#specialties" class="nav-link" data-section="specialties">Especialidades</a>
+      <a href="#team" class="nav-link" data-section="team">Equipe</a>
+      <a href="#contact" class="nav-link" data-section="contact">Contato</a>
+      <a href="#location" class="nav-link" data-section="location">Localização</a>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-toggle" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="tel:+551145872405" class="nav-cta">
+        <span>Ligar Agora</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>🦷 Odontologia de Excelência em Jundiaí</span>
+            </div>
+            <h1 class="hero-title">
+                Transformamos sorrisos com
+                <span class="hero-highlight">cuidado, precisão e experiência</span>
+            </h1>
+            <p class="hero-subtitle">
+                Mais de 30 anos oferecendo tratamentos odontológicos completos, com estrutura moderna,
+                equipe especializada e atendimento humanizado.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">+30</span>
+                    <span class="stat-label">Anos de Atividade</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Satisfação dos Pacientes</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">+1000</span>
+                    <span class="stat-label">Pacientes Atendidos</span>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <button class="btn-primary" onclick="scrollToForm()">
+                    <span>Agendar Consulta</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="btn-secondary" onclick="openWhatsApp()">
+                    <span>WhatsApp</span>
+                </button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-image">
+                <img src="/img/hero.webp" alt="Clínica Odontológica Dr. Polli" class="hero-img">
+                <div class="hero-decoration"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Especialidades Section -->
+<section class="especialidades-section" id="specialties">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-badge">Especialidades</span>
+      <h2 class="section-title">Nossas Especialidades</h2>
+      <p class="section-subtitle">Oferecemos uma gama completa de tratamentos odontológicos com tecnologia de ponta</p>
+    </div>
+    
+    <div class="especialidades-grid">
+      <div class="especialidade-item">
+        <div class="especialidade-icon">🦷</div>
+        <div class="especialidade-text">Clínica Geral</div>
+      </div>
+
+      <div class="especialidade-item">
+        <div class="especialidade-icon">🪛</div>
+        <div class="especialidade-text">Implantes</div>
+      </div>
+
+      <div class="especialidade-item">
+        <div class="especialidade-icon">💎</div>
+        <div class="especialidade-text">Estética</div>
+      </div>
+
+      <div class="especialidade-item">
+        <div class="especialidade-icon">🧲</div>
+        <div class="especialidade-text">Ortodontia</div>
+      </div>
+
+      <div class="especialidade-item">
+        <div class="especialidade-icon">🦷</div>
+        <div class="especialidade-text">Alinhadores Estéticos</div>
+      </div>
+
+      <div class="especialidade-item">
+        <div class="especialidade-icon">🔬</div>
+        <div class="especialidade-text">Endodontia (Canal)</div>
+      </div>
+
+      <div class="especialidade-item">
+        <div class="especialidade-icon">🩺</div>
+        <div class="especialidade-text">Periodontia</div>
+      </div>
+
+      <div class="especialidade-item">
+        <div class="especialidade-icon">👶</div>
+        <div class="especialidade-text">Odontopediatria</div>
+      </div>
+
+      <div class="especialidade-item">
+        <div class="especialidade-icon">🧩</div>
+        <div class="especialidade-text">Próteses Dentárias</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Equipe Section -->
+<section class="equipe" id="team">
+  <div class="equipe-container">
+    <div class="section-header">
+      <span class="section-badge">Nossa Equipe</span>
+      <h2 class="section-title">Profissionais que cuidam do seu sorriso</h2>
+      <p class="section-subtitle">
+        Conheça os especialistas da Clínica Dr. Polli — dedicação, técnica e acolhimento para garantir a sua melhor experiência.
+      </p>
+    </div>
+
+    <div class="equipe-grid">
+      <div class="equipe-card destaque">
+        <div class="equipe-image">
+          <img src="img/equipe/dr-polli.webp" 
+               alt="Dr. Polli - Especialista em Ortodontia e Estética" 
+               title="Dr. Polli"
+               width="400" height="300" loading="lazy" />
+        </div>
+        <div class="equipe-content">
+          <h3>Dr. Polli</h3>
+          <p>Mais de 30 anos de experiência em tratamentos ortodônticos, com foco na excelência estética e funcional.</p>
+          <ul class="equipe-especialidades">
+            <li>Ortodontia</li>
+            <li>Estética</li>
+            <li>Alinhadores Estéticos</li>
+          </ul>
+          <div class="equipe-cro">
+            <span class="cro-label">CRO:</span>
+            <span class="cro-numero">00000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="equipe-card">
+        <div class="equipe-image">
+          <img src="img/equipe/dra-mariana.webp" 
+               alt="Dra. Mariana - Odontopediatria e Clínica Geral" 
+               title="Dra. Mariana"
+               width="400" height="300" loading="lazy" />
+        </div>
+        <div class="equipe-content">
+          <h3>Dra. Mariana</h3>
+          <p>Atendimento humanizado para crianças e adultos, com foco em prevenção e acompanhamento completo.</p>
+          <ul class="equipe-especialidades">
+            <li>Odontopediatria</li>
+            <li>Clínica Geral</li>
+            <li>Periodontia</li>
+          </ul>
+          <div class="equipe-cro">
+            <span class="cro-label">CRO:</span>
+            <span class="cro-numero">00000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="equipe-card">
+        <div class="equipe-image">
+          <img src="img/equipe/dr-lucas.webp" 
+               alt="Dr. Lucas - Especialista em Implantes e Prótese" 
+               title="Dr. Lucas"
+               width="400" height="300" loading="lazy" />
+        </div>
+        <div class="equipe-content">
+          <h3>Dr. Lucas</h3>
+          <p>Especialista em reabilitação oral com próteses e implantes, devolvendo função e estética ao sorriso.</p>
+          <ul class="equipe-especialidades">
+            <li>Implantes</li>
+            <li>Próteses Dentárias</li>
+            <li>Endodontia</li>
+          </ul>
+          <div class="equipe-cro">
+            <span class="cro-label">CRO:</span>
+            <span class="cro-numero">00000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resultados Section -->
+<section class="resultados" id="resultados">
+  <div class="resultados-container">
+    <div class="section-header">
+      <span class="section-badge">Resultados</span>
+      <h2 class="section-title">Transformações que falam por si</h2>
+      <p class="section-subtitle">Veja alguns dos resultados alcançados com nossos tratamentos</p>
+    </div>
+
+    <div class="resultados-grid">
+      <!-- Clareamento Dental -->
+      <div class="resultados-item">
+        <div class="resultados-image">
+          <img src="img/resultados/clareamento.webp"
+               alt="Antes e depois de clareamento dental em paciente jovem"
+               title="Clareamento Dental - Resultado visível em poucas sessões"
+               width="600" height="400" loading="lazy">
+          <div class="resultados-overlay">
+            <div class="resultados-info">
+              <h4>Clareamento Dental</h4>
+              <p>Melhora significativa na tonalidade dos dentes com segurança e acompanhamento clínico.</p>
+              <span class="resultados-tag">Estética</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Implante Unitário -->
+      <div class="resultados-item">
+        <div class="resultados-image">
+          <img src="img/resultados/implante.webp"
+               alt="Radiografia e resultado visual após implante dentário unitário"
+               title="Implante dentário com reabilitação funcional e estética"
+               width="600" height="400" loading="lazy">
+          <div class="resultados-overlay">
+            <div class="resultados-info">
+              <h4>Implante Dentário</h4>
+              <p>Reposição definitiva de dente perdido com excelente integração óssea e estética natural.</p>
+              <span class="resultados-tag">Implantes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alinhadores Estéticos -->
+      <div class="resultados-item">
+        <div class="resultados-image">
+          <img src="img/resultados/alinhadores.webp"
+               alt="Evolução do alinhamento com uso de alinhadores estéticos invisíveis"
+               title="Alinhadores Estéticos Invisíveis"
+               width="600" height="400" loading="lazy">
+          <div class="resultados-overlay">
+            <div class="resultados-info">
+              <h4>Alinhadores Estéticos</h4>
+              <p>Correção de posicionamento dental com conforto e discrição no dia a dia.</p>
+              <span class="resultados-tag">Ortodontia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact" id="contact">
+  <div class="contact-container">
+    <div class="contact-content">
+      
+      <!-- Texto Informativo -->
+      <div class="contact-info">
+        <span class="section-badge">Agende sua consulta</span>
+        <h2>Estamos prontos para cuidar do seu sorriso</h2>
+        <p>
+          Preencha o formulário ao lado e nossa equipe entrará em contato com você 
+          para agendar uma avaliação e entender suas necessidades. Atendimento personalizado e humanizado.
+        </p>
+
+        <div class="contact-features">
+          <div class="contact-feature">
+            <div class="feature-icon">📅</div>
+            <div>
+              <h4>Facilidade no Agendamento</h4>
+              <p>Escolha o melhor dia e horário</p>
+            </div>
+          </div>
+          <div class="contact-feature">
+            <div class="feature-icon">🦷</div>
+            <div>
+              <h4>Especialistas Qualificados</h4>
+              <p>Equipe com mais de 30 anos de experiência</p>
+            </div>
+          </div>
+          <div class="contact-feature">
+            <div class="feature-icon">📍</div>
+            <div>
+              <h4>Localização Estratégica</h4>
+              <p>Fácil acesso na Av. Samuel Martins – Jundiaí</p>
+            </div>
+          </div>
+          <div class="contact-feature">
+            <div class="feature-icon">📞</div>
+            <div>
+              <h4>Atendimento via WhatsApp</h4>
+              <p>Converse com nossa equipe com agilidade</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulário -->
+      <div class="contact-form">
+        <form id="leadForm" class="form">
+          
+          <div class="form-group">
+            <label for="nome">Nome Completo</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" required>
+          </div>
+
+          <div class="form-group">
+            <label for="convenio">Possui Convênio?</label>
+            <select id="convenio" name="convenio" required>
+              <option value="">Selecione</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="especialidade">Especialidade Desejada</label>
+            <select id="especialidade" name="especialidade" required>
+              <option value="">Selecione</option>
+              <option value="clinica-geral">Clínica Geral</option>
+              <option value="implantes">Implantes</option>
+              <option value="estetica">Estética</option>
+              <option value="ortodontia">Ortodontia</option>
+              <option value="alinhadores">Alinhadores Estéticos</option>
+              <option value="odontopediatria">Odontopediatria</option>
+              <option value="proteses">Próteses Dentárias</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="info">Informações Adicionais</label>
+            <textarea id="info" name="info" rows="4" placeholder="Conte-nos mais sobre sua necessidade..."></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">
+            <span>Enviar Solicitação</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Localização Section -->
+<section class="localizacao" id="location">
+  <div class="localizacao-header">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Localização</span>
+        <h2 class="section-title">Estamos Aqui</h2>
+        <p class="localizacao-endereco">
+          Av. Samuel Martins, 477 – Vila Progresso, Jundiaí – SP, 13202-252
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="localizacao-mapa">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d916.7420124461205!2d-46.86789143036605!3d-23.20783496610558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf212b2c3e745b%3A0x1f6e4f790fcd2b74!2sAv.%20Samuel%20Martins%2C%20477%20-%20Vila%20Progresso%2C%20Jundia%C3%AD%20-%20SP%2C%2013202-252!5e0!3m2!1spt-BR!2sbr!4v1752579360610!5m2!1spt-BR!2sbr" 
+      width="100%" 
+      height="100%" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- Produtos Carousel Section -->
+<section class="produtos-carousel" id="produtos">
+  <div class="produtos-carousel-container">
+    <div class="section-header">
+      <span class="section-badge">Nossos Produtos</span>
+      <h2 class="section-title">Marcas que utilizamos no dia a dia</h2>
+      <p class="section-subtitle">Trabalhamos apenas com produtos de alta qualidade e marcas reconhecidas</p>
+    </div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="produtosCarousel">
+
+        <div class="produto-logo">
+          <img src="img/produtos/colgate.webp" alt="Colgate - Creme dental utilizado nos atendimentos" width="160" height="80" loading="lazy">
+          <span>Colgate</span>
+        </div>
+
+        <div class="produto-logo">
+          <img src="img/produtos/curaprox.webp" alt="Curaprox - Escovas ultra macias de alta qualidade" width="160" height="80" loading="lazy">
+          <span>Curaprox</span>
+        </div>
+
+        <div class="produto-logo">
+          <img src="img/produtos/listerine.webp" alt="Listerine - Antisséptico bucal para enxagues clínicos" width="160" height="80" loading="lazy">
+          <span>Listerine</span>
+        </div>
+
+        <div class="produto-logo">
+          <img src="img/produtos/oral-b.webp" alt="Oral-B - Escovas e cremes recomendados por dentistas" width="160" height="80" loading="lazy">
+          <span>Oral-B</span>
+        </div>
+
+        <div class="produto-logo">
+          <img src="img/produtos/3m.webp" alt="3M - Materiais de restauração e adesivos odontológicos" width="160" height="80" loading="lazy">
+          <span>3M Dental</span>
+        </div>
+
+        <div class="produto-logo">
+          <img src="img/produtos/whiteness.webp" alt="Whiteness - Sistema de clareamento profissional" width="160" height="80" loading="lazy">
+          <span>Whiteness</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-main">
+      
+      <!-- Seção da Marca -->
+      <div class="footer-brand-section">
+        <div class="footer-brand">
+          <span class="brand-text">
+            <span class="brand-name">Dr. Polli</span><span class="brand-dot">.</span>
+          </span>
+          <p class="brand-tagline">Excelência em saúde bucal</p>
+        </div>
+        <p class="footer-description">
+          Mais de 30 anos oferecendo atendimento humanizado e tecnologia de ponta para cuidar do seu sorriso e da sua família.
+        </p>
+      </div>
+
+      <!-- Seção de Links -->
+      <div class="footer-links-section">
+        <div class="footer-column">
+          <h4 class="footer-title">Atendimento</h4>
+          <ul class="footer-links">
+            <li><a href="#contact">Agende uma consulta</a></li>
+            <li><a href="#specialties">Especialidades</a></li>
+            <li><a href="#team">Nossa Equipe</a></li>
+            <li><a href="#resultados">Resultados</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-title">Institucional</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Sobre a Clínica</a></li>
+            <li><a href="#location">Como Chegar</a></li>
+            <li><a href="#produtos">Nossos Produtos</a></li>
+            <li><a href="tel:+551145872405">Contato Direto</a></li>
+          </ul>
+        </div>
+      </div>
+
+<!-- Seção de Contato -->
+<div class="footer-contact-section">
+  <h4 class="footer-title">Contato</h4>
+  <div class="footer-contact-info">
+
+    <div class="contact-item">
+      <div class="contact-icon">
+        <i class="fas fa-map-marker-alt"></i>
+      </div>
+      <div>
+        <p>Av. Samuel Martins, 477</p>
+        <p>Vila Progresso, Jundiaí - SP</p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-icon">
+        <i class="fas fa-phone-alt"></i>
+      </div>
+      <div>
+        <p><a href="tel:+551145872405">(11) 4587-2405</a></p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-icon">
+        <a href="https://www.instagram.com/clinicadrpolli" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      <div><span>Instagram</span></div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-icon">
+        <a href="https://www.facebook.com/clinicadrpolli" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </div>
+      <div><span>Facebook</span></div>
+    </div>
+
+  </div>
+</div>
+
+</div> <!-- Fecha coluna principal do footer -->
+
+<!-- Rodapé Final -->
+<div class="footer-bottom">
+  <div class="footer-bottom-content">
+    <span>&copy; 2025 Dr. Polli — Todos os direitos reservados</span>
+    <span>Desenvolvido por <a href="https://www.morientes.com.br" target="_blank" class="footer-dev">morientes<span class="dot">.</span></a></span>
+  </div>
+</div>
+</div>
+</footer>
+
+<!-- WhatsApp Float -->
+<div class="whatsapp-float" onclick="openWhatsApp()">
+  <i class="fab fa-whatsapp"></i>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
