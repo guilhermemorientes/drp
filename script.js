@@ -1,6 +1,9 @@
 // DOM Elements
 const leadForm = document.getElementById("leadForm")
 const submitBtn = document.querySelector(".form-submit")
+const notificationContainer = document.createElement("div") // Create a container for notifications
+notificationContainer.id = "notification-container"
+document.body.appendChild(notificationContainer)
 
 // Smooth scrolling and animations
 document.addEventListener("DOMContentLoaded", () => {
@@ -31,11 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sections.forEach((section) => {
       const sectionHeight = section.offsetHeight
-      const sectionTop = section.offsetTop - 100
+      const sectionTop = section.offsetTop - 100 // Adjust offset for fixed header
       const sectionId = section.getAttribute("id")
       const navLink = document.querySelector(`.nav-link[data-section="${sectionId}"]`)
 
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
         navLinks.forEach((link) => link.classList.remove("active"))
         if (navLink) navLink.classList.add("active")
       }
@@ -50,23 +53,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", updateActiveNav)
-  updateActiveNav() // Initial call
+  updateActiveNav() // Initial call to set active state and nav background
 
   // Clients carousel infinite scroll
-  const carousel = document.getElementById("produtosCarousel")
-  if (carousel) {
+  const carouselTrack = document.getElementById("produtosCarousel")
+  if (carouselTrack) {
     // Clone items for infinite scroll
-    const items = carousel.innerHTML
-    carousel.innerHTML = items + items
+    const items = Array.from(carouselTrack.children)
+    items.forEach((item) => {
+      carouselTrack.appendChild(item.cloneNode(true))
+    })
   }
 
   // Smooth scroll for navigation links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault()
-      const target = document.querySelector(this.getAttribute("href"))
+      const targetId = this.getAttribute("href")
+      const target = document.querySelector(targetId)
       if (target) {
-        const offsetTop = target.offsetTop - 80
+        const offsetTop = target.offsetTop - 80 // Adjust for fixed header height
         window.scrollTo({
           top: offsetTop,
           behavior: "smooth",
@@ -75,7 +81,10 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Intersection Observer for animations
+  // Intersection Observer for animations (if you want to add a class like 'animate-fade-in-up')
+  // This part was in the original JS but no corresponding CSS for 'animate-fade-in-up' was provided.
+  // If you want animations, you'll need to add the CSS for them.
+  // For now, I'll keep the observer logic but comment out the class addition.
   const observerOptions = {
     threshold: 0.1,
     rootMargin: "0px 0px -50px 0px",
@@ -84,7 +93,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("animate-fade-in-up")
+        entry.target.classList.add("is-visible") // Use a simple class for visibility
+        // entry.target.classList.add("animate-fade-in-up"); // Uncomment if you add this CSS animation
+      } else {
+        entry.target.classList.remove("is-visible") // Remove if not intersecting
       }
     })
   }, observerOptions)
@@ -109,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Validate required fields
       const requiredFields = ["nome", "email", "telefone", "convenio", "especialidade"]
-      const missingFields = requiredFields.filter((field) => !data[field] || data[field].trim() === "")
+      const missingFields = requiredFields.filter((field) => !data[field] || String(data[field]).trim() === "")
 
       if (missingFields.length > 0) {
         showNotification("Por favor, preencha todos os campos obrigatórios.", "error")
@@ -118,16 +130,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Validate email
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      if (!emailRegex.test(data.email)) {
+      if (!emailRegex.test(String(data.email))) {
         showNotification("Por favor, insira um e-mail válido.", "error")
         return
       }
 
       // Show loading state
-      submitBtn.classList.add("loading")
       submitBtn.disabled = true
       const originalText = submitBtn.innerHTML
-      submitBtn.innerHTML = "<span>Enviando...</span>"
+      submitBtn.innerHTML = `
+        <span class="spinner"></span>
+        <span>Enviando...</span>
+      `
+      submitBtn.classList.add("loading")
 
       try {
         // Simulate API call
@@ -136,9 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Success
         showNotification("Solicitação enviada com sucesso! Entraremos em contato em até 2 horas.", "success")
         leadForm.reset()
-
-        // Track conversion
-        trackConversion("lead_form_submission", data)
       } catch (error) {
         console.error("Erro ao enviar formulário:", error)
         showNotification("Erro ao enviar formulário. Tente novamente ou entre em contato pelo WhatsApp.", "error")
@@ -155,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const phoneInput = document.getElementById("telefone")
   if (phoneInput) {
     phoneInput.addEventListener("input", (e) => {
-      let value = e.target.value.replace(/\D/g, "")
+      let value = e.target.value.replace(/\D/g, "") // Remove non-digits
 
       if (value.length <= 11) {
         if (value.length <= 2) {
@@ -165,6 +177,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           value = value.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3")
         }
+      } else {
+        value = value.substring(0, 11).replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3") // Limit to 11 digits
       }
 
       e.target.value = value
@@ -174,10 +188,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Utility functions
 function scrollToForm() {
-  document.getElementById("contact").scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  })
+  const contactSection = document.getElementById("contact")
+  if (contactSection) {
+    const offsetTop = contactSection.offsetTop - 80 // Adjust for fixed header
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    })
+  }
 }
 
 function openWhatsApp() {
@@ -202,7 +220,7 @@ async function simulateFormSubmission(data) {
 
 function showNotification(message, type = "info") {
   // Remove existing notifications
-  const existingNotifications = document.querySelectorAll(".notification")
+  const existingNotifications = notificationContainer.querySelectorAll(".notification")
   existingNotifications.forEach((notification) => notification.remove())
 
   // Create notification
@@ -214,11 +232,11 @@ function showNotification(message, type = "info") {
                 ${type === "success" ? "✅" : type === "error" ? "❌" : "ℹ️"}
             </span>
             <span class="notification-message">${message}</span>
-            <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+            <button class="notification-close" aria-label="Fechar notificação">×</button>
         </div>
     `
 
-  // Add styles
+  // Add styles (inline for simplicity, or move to CSS if preferred)
   notification.style.cssText = `
         position: fixed;
         top: 100px;
@@ -232,10 +250,38 @@ function showNotification(message, type = "info") {
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         animation: slideInRight 0.3s ease-out;
         font-weight: 500;
+        opacity: 0; /* Start hidden for animation */
+        transform: translateX(100%); /* Start off-screen for animation */
     `
 
-  const style = document.createElement("style")
-  style.textContent = `
+  // Append to container and trigger animation
+  notificationContainer.appendChild(notification)
+  setTimeout(() => {
+    notification.style.opacity = "1"
+    notification.style.transform = "translateX(0)"
+  }, 10) // Small delay to ensure CSS transition applies
+
+  // Add close button functionality
+  notification.querySelector(".notification-close").addEventListener("click", () => {
+    notification.style.opacity = "0"
+    notification.style.transform = "translateX(100%)"
+    notification.addEventListener("transitionend", () => notification.remove())
+  })
+
+  // Auto remove after 5 seconds
+  setTimeout(() => {
+    if (notification.parentElement) {
+      notification.style.opacity = "0"
+      notification.style.transform = "translateX(100%)"
+      notification.addEventListener("transitionend", () => notification.remove())
+    }
+  }, 5000)
+
+  // Add animation keyframes if not already present
+  if (!document.getElementById("notification-keyframes")) {
+    const style = document.createElement("style")
+    style.id = "notification-keyframes"
+    style.textContent = `
         @keyframes slideInRight {
             from {
                 transform: translateX(100%);
@@ -264,56 +310,24 @@ function showNotification(message, type = "info") {
         .notification-close:hover {
             opacity: 1;
         }
+        .form-submit.loading .spinner {
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          border-top: 2px solid #fff;
+          border-radius: 50%;
+          width: 16px;
+          height: 16px;
+          animation: spin 1s linear infinite;
+          display: inline-block;
+          margin-right: 8px;
+        }
+        .form-submit.loading span:not(.spinner) {
+          opacity: 0.8;
+        }
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
     `
-
-  document.head.appendChild(style)
-  document.body.appendChild(notification)
-
-  // Auto remove after 5 seconds
-  setTimeout(() => {
-    if (notification.parentElement) {
-      notification.remove()
-    }
-  }, 5000)
+    document.head.appendChild(style)
+  }
 }
-
-function trackConversion(eventName, data) {
-  // Google Analytics 4
-  const gtag = window.gtag
-  if (typeof gtag !== "undefined") {
-    gtag("event", eventName, {
-      custom_parameter: data.especialidade,
-      value: 150,
-      currency: "BRL",
-    })
-  }
-
-  // Facebook Pixel
-  const fbq = window.fbq
-  if (typeof fbq !== "undefined") {
-    fbq("track", "Lead", {
-      content_category: data.especialidade,
-      value: 150,
-      currency: "BRL",
-    })
-  }
-
-  // Console log for debugging
-  console.log("🎯 Conversion tracked:", eventName, data)
-}
-
-// Performance monitoring
-window.addEventListener("load", () => {
-  const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart
-  console.log(`⚡ Page loaded in ${loadTime}ms`)
-
-  // Track performance
-  const gtag = window.gtag
-  if (typeof gtag !== "undefined") {
-    gtag("event", "page_load_time", {
-      value: Math.round(loadTime / 1000),
-    })
-  }
-})
-
-console.log("🦷 Clínica Dr. Polli website loaded successfully! 🦷")
