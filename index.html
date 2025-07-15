@@ -13,12 +13,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Ícones Font Awesome -->
-<!-- Font Awesome - versão limpa para localhost -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Restaurado o link original do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- Favicons -->
-<link rel="icon" href="img/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <!-- Favicons -->
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -30,14 +30,13 @@
     </div>
     <div class="nav-menu" id="navMenu">
       <a href="#hero" class="nav-link active" data-section="hero">Início</a>
-      <a href="#about" class="nav-link" data-section="about">Sobre Nós</a>
       <a href="#specialties" class="nav-link" data-section="specialties">Especialidades</a>
       <a href="#team" class="nav-link" data-section="team">Equipe</a>
       <a href="#contact" class="nav-link" data-section="contact">Contato</a>
       <a href="#location" class="nav-link" data-section="location">Localização</a>
     </div>
     <div class="nav-actions">
-      <button class="nav-toggle" id="navToggle">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
         <span></span>
         <span></span>
         <span></span>
@@ -79,20 +78,21 @@
                 </div>
             </div>
             <div class="hero-actions">
-                <button class="btn-primary" onclick="scrollToForm()">
+                <button class="btn-primary" onclick="scrollToForm()" aria-label="Agendar Consulta">
                     <span>Agendar Consulta</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
                     </svg>
                 </button>
-                <button class="btn-secondary" onclick="openWhatsApp()">
+                <button class="btn-secondary" onclick="openWhatsApp()" aria-label="Abrir WhatsApp">
                     <span>WhatsApp</span>
                 </button>
             </div>
         </div>
         <div class="hero-visual">
             <div class="hero-image">
-                <img src="/img/hero.webp" alt="Clínica Odontológica Dr. Polli" class="hero-img">
+                <!-- Restaurado o caminho original da imagem -->
+                <img src="img/hero.webp" alt="Clínica Odontológica Dr. Polli" class="hero-img">
                 <div class="hero-decoration"></div>
             </div>
         </div>
@@ -110,46 +110,55 @@
     
     <div class="especialidades-grid">
       <div class="especialidade-item">
+        <!-- Restaurado para emoji -->
         <div class="especialidade-icon">🦷</div>
         <div class="especialidade-text">Clínica Geral</div>
       </div>
 
       <div class="especialidade-item">
+        <!-- Restaurado para emoji -->
         <div class="especialidade-icon">🪛</div>
         <div class="especialidade-text">Implantes</div>
       </div>
 
       <div class="especialidade-item">
+        <!-- Restaurado para emoji -->
         <div class="especialidade-icon">💎</div>
         <div class="especialidade-text">Estética</div>
       </div>
 
       <div class="especialidade-item">
+        <!-- Restaurado para emoji -->
         <div class="especialidade-icon">🧲</div>
         <div class="especialidade-text">Ortodontia</div>
       </div>
 
       <div class="especialidade-item">
+        <!-- Restaurado para emoji -->
         <div class="especialidade-icon">🦷</div>
         <div class="especialidade-text">Alinhadores Estéticos</div>
       </div>
 
       <div class="especialidade-item">
+        <!-- Restaurado para emoji -->
         <div class="especialidade-icon">🔬</div>
         <div class="especialidade-text">Endodontia (Canal)</div>
       </div>
 
       <div class="especialidade-item">
+        <!-- Restaurado para emoji -->
         <div class="especialidade-icon">🩺</div>
         <div class="especialidade-text">Periodontia</div>
       </div>
 
       <div class="especialidade-item">
+        <!-- Restaurado para emoji -->
         <div class="especialidade-icon">👶</div>
         <div class="especialidade-text">Odontopediatria</div>
       </div>
 
       <div class="especialidade-item">
+        <!-- Restaurado para emoji -->
         <div class="especialidade-icon">🧩</div>
         <div class="especialidade-text">Próteses Dentárias</div>
       </div>
@@ -171,6 +180,7 @@
     <div class="equipe-grid">
       <div class="equipe-card destaque">
         <div class="equipe-image">
+          <!-- Restaurado o caminho original da imagem -->
           <img src="img/equipe/dr-polli.webp" 
                alt="Dr. Polli - Especialista em Ortodontia e Estética" 
                title="Dr. Polli"
@@ -193,6 +203,7 @@
 
       <div class="equipe-card">
         <div class="equipe-image">
+          <!-- Restaurado o caminho original da imagem -->
           <img src="img/equipe/dra-mariana.webp" 
                alt="Dra. Mariana - Odontopediatria e Clínica Geral" 
                title="Dra. Mariana"
@@ -215,6 +226,7 @@
 
       <div class="equipe-card">
         <div class="equipe-image">
+          <!-- Restaurado o caminho original da imagem -->
           <img src="img/equipe/dr-lucas.webp" 
                alt="Dr. Lucas - Especialista em Implantes e Prótese" 
                title="Dr. Lucas"
@@ -251,6 +263,7 @@
       <!-- Clareamento Dental -->
       <div class="resultados-item">
         <div class="resultados-image">
+          <!-- Restaurado o caminho original da imagem -->
           <img src="img/resultados/clareamento.webp"
                alt="Antes e depois de clareamento dental em paciente jovem"
                title="Clareamento Dental - Resultado visível em poucas sessões"
@@ -268,6 +281,7 @@
       <!-- Implante Unitário -->
       <div class="resultados-item">
         <div class="resultados-image">
+          <!-- Restaurado o caminho original da imagem -->
           <img src="img/resultados/implante.webp"
                alt="Radiografia e resultado visual após implante dentário unitário"
                title="Implante dentário com reabilitação funcional e estética"
@@ -285,6 +299,7 @@
       <!-- Alinhadores Estéticos -->
       <div class="resultados-item">
         <div class="resultados-image">
+          <!-- Restaurado o caminho original da imagem -->
           <img src="img/resultados/alinhadores.webp"
                alt="Evolução do alinhamento com uso de alinhadores estéticos invisíveis"
                title="Alinhadores Estéticos Invisíveis"
@@ -318,6 +333,7 @@
 
         <div class="contact-features">
           <div class="contact-feature">
+            <!-- Restaurado para emoji -->
             <div class="feature-icon">📅</div>
             <div>
               <h4>Facilidade no Agendamento</h4>
@@ -325,6 +341,7 @@
             </div>
           </div>
           <div class="contact-feature">
+            <!-- Restaurado para emoji -->
             <div class="feature-icon">🦷</div>
             <div>
               <h4>Especialistas Qualificados</h4>
@@ -332,6 +349,7 @@
             </div>
           </div>
           <div class="contact-feature">
+            <!-- Restaurado para emoji -->
             <div class="feature-icon">📍</div>
             <div>
               <h4>Localização Estratégica</h4>
@@ -339,6 +357,7 @@
             </div>
           </div>
           <div class="contact-feature">
+            <!-- Restaurado para emoji -->
             <div class="feature-icon">📞</div>
             <div>
               <h4>Atendimento via WhatsApp</h4>
@@ -397,8 +416,8 @@
 
           <button type="submit" class="form-submit">
             <span>Enviar Solicitação</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
             </svg>
           </button>
         </form>
@@ -429,7 +448,8 @@
       style="border:0;" 
       allowfullscreen="" 
       loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Localização da Clínica Dr. Polli no Google Maps">
     </iframe>
   </div>
 </section>
@@ -446,6 +466,7 @@
     <div class="carousel-wrapper">
       <div class="carousel-track" id="produtosCarousel">
 
+        <!-- Restaurados os caminhos originais das imagens -->
         <div class="produto-logo">
           <img src="img/produtos/colgate.webp" alt="Colgate - Creme dental utilizado nos atendimentos" width="160" height="80" loading="lazy">
           <span>Colgate</span>
@@ -546,7 +567,7 @@
 
     <div class="contact-item">
       <div class="contact-icon">
-        <a href="https://www.instagram.com/clinicadrpolli" target="_blank" aria-label="Instagram">
+        <a href="https://www.instagram.com/clinicadrpolli" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
       </div>
@@ -555,7 +576,7 @@
 
     <div class="contact-item">
       <div class="contact-icon">
-        <a href="https://www.facebook.com/clinicadrpolli" target="_blank" aria-label="Facebook">
+        <a href="https://www.facebook.com/clinicadrpolli" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
           <i class="fab fa-facebook-f"></i>
         </a>
       </div>
@@ -571,14 +592,14 @@
 <div class="footer-bottom">
   <div class="footer-bottom-content">
     <span>&copy; 2025 Dr. Polli — Todos os direitos reservados</span>
-    <span>Desenvolvido por <a href="https://www.morientes.com.br" target="_blank" class="footer-dev">morientes<span class="dot">.</span></a></span>
+    <span>Desenvolvido por <a href="https://www.morientes.com.br" target="_blank" rel="noopener noreferrer" class="footer-dev">morientes<span class="dot">.</span></a></span>
   </div>
 </div>
 </div>
 </footer>
 
 <!-- WhatsApp Float -->
-<div class="whatsapp-float" onclick="openWhatsApp()">
+<div class="whatsapp-float" onclick="openWhatsApp()" aria-label="Abrir WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </div>
 
